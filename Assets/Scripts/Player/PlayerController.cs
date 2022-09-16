@@ -1,4 +1,5 @@
 using Input;
+using Misc;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,20 +18,30 @@ namespace Player
         [SerializeField] private float moveSpeed;
         public float MoveSpeed { get { return moveSpeed; } }
 
+        [SerializeField] private float viewSensitivity = 160;
+        public float ViewSensitivity { get { return viewSensitivity; } }
+
+
 
 
         [SerializeField] private PlayerViewController viewController;
         public PlayerViewController ViewController { get { return viewController; } }
 
+        [SerializeField] private FlashlightController flashlight;
+        public FlashlightController Flashlight { get { return flashlight; } }
+
+
 
         // Update is called once per frame
         void Update()
         {
-            Vector2 input = this.Input.View.GetVector2();
+            Vector2 input = this.Input.View.GetVector2() * Time.deltaTime * this.ViewSensitivity;
             this.ViewController.Update(input);
 
             input = this.Input.Move.GetVector2();
             this.Move(input);
+
+            this.Flashlight.FlashlightLerpTransform.Mode = input.magnitude > .1f ? LerpTransformMode.Instant : LerpTransformMode.Lerp;
         }
 
         void Move(Vector2 moveInput)
@@ -89,5 +100,16 @@ namespace Player
             rotation.x = this.X;
             this.Head.transform.localEulerAngles = rotation;
         }
+    }
+
+    [System.Serializable]
+    public class FlashlightController
+    {
+        [SerializeField] private LerpTransform flashlightLerpTransform;
+        public LerpTransform FlashlightLerpTransform { get { return flashlightLerpTransform; } }
+
+        [SerializeField] private GameObject flashlight;
+        public GameObject gameObject { get { return flashlight; } }
+
     }
 }
