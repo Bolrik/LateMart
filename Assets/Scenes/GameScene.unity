@@ -11679,6 +11679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024201386}
   - component: {fileID: 2024201387}
+  - component: {fileID: 2024201388}
   m_Layer: 0
   m_Name: Spawner (0)
   m_TagString: Untagged
@@ -11708,13 +11709,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024201385}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eef2cc9c611d6e4f9f2da0e7e68ede1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f35d29c02c785ad4c8a8359c8cc24080, type: 2}
   radius: 200
+  spawns: 1000
+--- !u!114 &2024201388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024201385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f932db26441647842259206d62253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnData:
+  - {fileID: 11400000, guid: 59f07881042b785459a140082176c9fd, type: 2}
+  radius: {x: 1, y: 130}
+  circleDistance: {x: 1, y: 2}
+  spawnOffset: {x: -1, y: 1}
+  spawnStep: 0.2
   spawns: 1000
 --- !u!1001 &2030961284
 PrefabInstance:
