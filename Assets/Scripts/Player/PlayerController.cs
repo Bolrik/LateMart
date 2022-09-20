@@ -36,6 +36,7 @@ namespace Player
         void Update()
         {
             Vector2 input = this.Input.View.GetVector2() * Time.deltaTime * this.ViewSensitivity;
+
             this.ViewController.Update(input);
 
             input = this.Input.Move.GetVector2();

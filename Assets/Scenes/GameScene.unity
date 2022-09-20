@@ -1178,8 +1178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 731886117}
-  lerpTime: 0.1
-  lerpInstantTime: 0.0001
+  lerpTime: 0.05
+  lerpInstantTime: 0.9
   mode: 0
 --- !u!4 &152819777 stripped
 Transform:
@@ -3708,6 +3708,56 @@ Transform:
   m_Father: {fileID: 1151050756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &619169844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 619169845}
+  - component: {fileID: 619169846}
+  m_Layer: 0
+  m_Name: Tree Spawner (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &619169845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619169844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711193070}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619169846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619169844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f932db26441647842259206d62253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnData:
+  - {fileID: 11400000, guid: 13f7b9cb7cc244447a3b7ed0dd64ac57, type: 2}
+  radius: 3
+  distance: 3
+  offset: {x: -5, y: 5}
+  spawns: 500
 --- !u!1 &627663825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4643,6 +4693,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2024201386}
+  - {fileID: 619169845}
+  - {fileID: 2018309854}
   m_Father: {fileID: 2136819301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10035,7 +10087,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1673821016}
   input: {fileID: 1673821017}
   moveSpeed: 8
-  viewSensitivity: 8
+  viewSensitivity: 50
   viewController:
     player: {fileID: 1673821018}
     transform: {fileID: 1673821015}
@@ -11637,6 +11689,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 756155512}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2018309853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018309854}
+  - component: {fileID: 2018309855}
+  m_Layer: 0
+  m_Name: Bush Spawner (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2018309854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018309853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711193070}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018309855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018309853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f932db26441647842259206d62253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnData:
+  - {fileID: 11400000, guid: 6cc3e725495c2dd41a7f70e9dd0e43b3, type: 2}
+  radius: 3
+  distance: 3
+  offset: {x: -5, y: 5}
+  spawns: 500
 --- !u!1 &2021161951
 GameObject:
   m_ObjectHideFlags: 0
@@ -11678,10 +11780,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2024201386}
-  - component: {fileID: 2024201387}
   - component: {fileID: 2024201388}
   m_Layer: 0
-  m_Name: Spawner (0)
+  m_Name: Flower Spawner (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11702,21 +11803,6 @@ Transform:
   m_Father: {fileID: 711193070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2024201387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024201385}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eef2cc9c611d6e4f9f2da0e7e68ede1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: f35d29c02c785ad4c8a8359c8cc24080, type: 2}
-  radius: 200
-  spawns: 1000
 --- !u!114 &2024201388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11731,11 +11817,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnData:
   - {fileID: 11400000, guid: 59f07881042b785459a140082176c9fd, type: 2}
-  radius: {x: 1, y: 130}
-  circleDistance: {x: 1, y: 2}
-  spawnOffset: {x: -1, y: 1}
-  spawnStep: 0.2
-  spawns: 1000
+  radius: 5
+  distance: 2
+  offset: {x: -2, y: 2}
+  spawns: 500
 --- !u!1001 &2030961284
 PrefabInstance:
   m_ObjectHideFlags: 0

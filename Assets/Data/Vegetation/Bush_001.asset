@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 364ac1a6df2f7684d9bf446d4286f4a7, type: 3}
-  m_Name: Flower_001
+  m_Name: Bush_001
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3284826134816789664, guid: add2e4589f8d77e49bf7500e335dbac5, type: 3}
-  scaleMinMax: {x: 0.5, y: 0.7}
+  prefab: {fileID: 5065552385633520708, guid: 19e3f5f8b7cdb584398bc6e050092834, type: 3}
+  scaleMinMax: {x: 0.6, y: 0.9}

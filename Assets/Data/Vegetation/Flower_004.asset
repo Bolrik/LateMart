@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Flower_004
   m_EditorClassIdentifier: 
   prefab: {fileID: 6585601335167072790, guid: bf82d20f650b2ed4599b12985b6ebcbe, type: 3}
-  scaleMinMax: {x: 0.8, y: 1.1}
+  scaleMinMax: {x: 0.5, y: 0.7}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364ac1a6df2f7684d9bf446d4286f4a7, type: 3}
-  m_Name: Flower_001
+  m_Script: {fileID: 11500000, guid: 25fc3309610fb9e4ab5e7d17c3e08472, type: 3}
+  m_Name: Trees
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3284826134816789664, guid: add2e4589f8d77e49bf7500e335dbac5, type: 3}
-  scaleMinMax: {x: 0.5, y: 0.7}
+  spawnData:
+  - {fileID: 11400000, guid: 5a536455dc9e01f4fa77d647f464e59a, type: 2}
