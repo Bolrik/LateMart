@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/MainTheme.uss?fileID=7433441132597879392&amp;guid=018f29827f039a2408de424867cc5733&amp;type=3#MainTheme" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:Label text="[Game Title goes here]" display-tooltip-when-elided="true" style="font-size: 32px; -unity-font-style: bold; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-left-color: rgb(55, 55, 55); border-right-color: rgb(55, 55, 55); border-top-color: rgb(55, 55, 55); border-bottom-color: rgb(55, 55, 55); margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; -unity-text-align: upper-center; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=4eeffb269cb3cf745950274b2a1667a6&amp;type=3#NotInter-Regular&apos;); color: rgb(255, 255, 255); text-shadow: 1px 1px 1px rgb(72, 72, 72);" />
+        <ui:VisualElement style="align-items: flex-start; justify-content: flex-end; flex-grow: 1; flex-direction: column;">
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="Button_Start" class="Button_Start MenuButton" style="margin-top: 50px; margin-bottom: 5px;" />
+            <ui:Button text="Exit" display-tooltip-when-elided="true" name="Button_Exit" enable-rich-text="true" class="Button_Start MenuButton" style="margin-top: 0; margin-bottom: 5px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
