@@ -20,7 +20,7 @@
     padding-left: 100px;
     padding-right: 100px;
     width: 300px;
-    color: rgba(220, 220, 220, 255);
+    color: rgb(220, 220, 220);
 }
 
 .MenuButton:hover {
@@ -44,7 +44,7 @@
     border-bottom-color: rgba(8, 8, 8, 0.39);
     padding-left: 100px;
     padding-right: 100px;
-    color: rgba(83, 106, 137, 255);
+    color: rgb(83, 106, 137);
     width: 300px;
 }
 
@@ -71,4 +71,8 @@
     padding-right: 100px;
     color: rgb(83, 106, 137);
     width: 300px;
+}
+
+.hp-bar .unity-progress-bar__progress {
+    background-color: rgb(40, 16, 75);
 }

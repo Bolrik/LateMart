@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50709751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2556,6 +2556,56 @@ Transform:
   m_Father: {fileID: 1151050756}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &450452821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450452822}
+  - component: {fileID: 450452823}
+  m_Layer: 0
+  m_Name: Bush Spawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450452822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450452821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711193070}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &450452823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450452821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d1b043485ed6d42b47b25fbc68f5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnData:
+  - {fileID: 11400000, guid: 6cc3e725495c2dd41a7f70e9dd0e43b3, type: 2}
+  radius: 135
+  distance: 0.2
+  offset: {x: -2, y: 2}
+  spawns: 800
 --- !u!4 &488774029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3225204543643189115, guid: 9108946081343884390748c52b2f4b90,
@@ -3649,9 +3699,9 @@ MonoBehaviour:
   spawnData:
   - {fileID: 11400000, guid: 13f7b9cb7cc244447a3b7ed0dd64ac57, type: 2}
   radius: 5
-  distance: 3
+  distance: 5
   offset: {x: -2, y: 2}
-  spawns: 500
+  spawns: 800
 --- !u!1 &627663825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,9 +4639,61 @@ Transform:
   - {fileID: 2024201386}
   - {fileID: 619169845}
   - {fileID: 2018309854}
+  - {fileID: 715800654}
+  - {fileID: 450452822}
   m_Father: {fileID: 2136819301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &715800653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715800654}
+  - component: {fileID: 715800655}
+  m_Layer: 0
+  m_Name: Tree Spawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715800654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715800653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 0, z: 500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711193070}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715800655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715800653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d1b043485ed6d42b47b25fbc68f5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnData:
+  - {fileID: 11400000, guid: 13f7b9cb7cc244447a3b7ed0dd64ac57, type: 2}
+  radius: 130
+  distance: 0.2
+  offset: {x: -2, y: 2}
+  spawns: 800
 --- !u!4 &722310892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3225204543643189115, guid: 9108946081343884390748c52b2f4b90,
@@ -7936,6 +8038,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1155295157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155295158}
+  m_Layer: 0
+  m_Name: World Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155295158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155295157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1156476954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3225204543643189115, guid: 9108946081343884390748c52b2f4b90,
@@ -9932,6 +10065,7 @@ GameObject:
   - component: {fileID: 1673821016}
   - component: {fileID: 1673821018}
   - component: {fileID: 1673821017}
+  - component: {fileID: 1673821019}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -10012,6 +10146,21 @@ MonoBehaviour:
   flashlight:
     flashlightLerpTransform: {fileID: 856641633}
     flashlight: {fileID: 142267545}
+--- !u!114 &1673821019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673821014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c3325e32622b64a8c2b953baa39cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchor: {fileID: 1155295158}
+  radius: 120
+  speed: 50
 --- !u!1001 &1682286960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11648,9 +11797,9 @@ MonoBehaviour:
   spawnData:
   - {fileID: 11400000, guid: 6cc3e725495c2dd41a7f70e9dd0e43b3, type: 2}
   radius: 5
-  distance: 3
+  distance: 5
   offset: {x: -2, y: 2}
-  spawns: 800
+  spawns: 700
 --- !u!1 &2021161951
 GameObject:
   m_ObjectHideFlags: 0
@@ -11731,9 +11880,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8ba8ef01293f5448b2767ee0a2bf73c, type: 2}
   - {fileID: 11400000, guid: 59f07881042b785459a140082176c9fd, type: 2}
   radius: 5
-  distance: 3
-  offset: {x: -2, y: 2}
-  spawns: 300
+  distance: 6.17
+  offset: {x: -5, y: 5}
+  spawns: 500
 --- !u!1001 &2030961284
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ public class SpiralSpawner : MonoBehaviour
 
                 obj.transform.localEulerAngles = data.GetEulerAngles();
             }
-        }        
+        }
     }
 
     SpawnData GetRandomData()
@@ -72,5 +72,23 @@ public class SpiralSpawner : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(this.transform.position, this.Radius);
+
+        float radius = 0;
+        float angle = this.Radius;
+        float offset = 0;
+
+        for (var i = 0; i < this.Spawns; i++)
+        {
+            offset = Random.Range(this.Offset.x, this.Offset.y);
+
+            radius = Mathf.Sqrt(i + 1);
+            angle += Mathf.Asin(1 / radius) * this.Distance;
+            radius *= this.Distance;
+
+            var x = Mathf.Cos(angle) * (radius + offset + this.Radius);
+            var y = Mathf.Sin(angle) * (radius + offset + this.Radius);
+
+            Gizmos.DrawWireSphere(new Vector3(x, this.transform.position.y, y), 1);
+        }
     }
 }
