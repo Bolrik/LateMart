@@ -18,8 +18,10 @@ namespace Player
         [SerializeField] private float moveSpeed;
         public float MoveSpeed { get { return moveSpeed; } }
 
-        [SerializeField] private float viewSensitivity = 160;
-        public float ViewSensitivity { get { return viewSensitivity; } }
+
+        [SerializeField] private PlayerData data;
+        public PlayerData Data { get { return data; } }
+
 
 
 
@@ -35,7 +37,7 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-            Vector2 input = this.Input.View.GetVector2() * Time.deltaTime * this.ViewSensitivity;
+            Vector2 input = this.Input.View.GetVector2() * this.Data.ViewSensitivity;
 
             this.ViewController.Update(input);
 
@@ -48,7 +50,7 @@ namespace Player
         void Move(Vector2 moveInput)
         {
             Vector3 move = this.transform.forward * moveInput.y * this.MoveSpeed;
-            Vector3 strafe= this.transform.right * moveInput.x * this.MoveSpeed;
+            Vector3 strafe = this.transform.right * moveInput.x * this.MoveSpeed;
 
             this.Rigidbody.velocity = Vector3.Lerp(this.Rigidbody.velocity, move + strafe, 1 / .3f * Time.deltaTime);
         }

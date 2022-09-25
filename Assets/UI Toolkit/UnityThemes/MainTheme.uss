@@ -76,3 +76,8 @@
 .hp-bar .unity-progress-bar__progress {
     background-color: rgb(40, 16, 75);
 }
+
+.DefaultLabel {
+    font-size: 15px;
+    color: rgba(236, 236, 236, 255);
+}
