@@ -16,6 +16,7 @@ namespace Input
         public InputState View { get; private set; }
         public InputButton Action { get; private set; }
         public InputButton AnyKey { get; private set; }
+        public InputButton Back { get; private set; }
 
         InputStateUpdate InputStateUpdate { get; set; }
 
@@ -29,6 +30,8 @@ namespace Input
 
             this.Action = this.AddButton(this.Input.Player.Act);
             this.AnyKey = this.AddButton(this.Input.Player.KeyPress);
+
+            this.Back = this.AddButton(this.Input.Player.Back);
         }
 
         private InputState Add(InputAction inputAction)

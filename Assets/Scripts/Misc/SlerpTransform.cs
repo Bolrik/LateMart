@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Misc
 {
-    public class LerpTransform : MonoBehaviour
+    public class SlerpTransform : MonoBehaviour
     {
         [SerializeField] private UpdateType updateType;
         public UpdateType UpdateType { get { return updateType; } }
@@ -67,7 +65,7 @@ namespace Misc
         {
             if (this.SetPosition)
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, this.Target.position, this.PositionLerpTime);
+                this.transform.position = Vector3.Slerp(this.transform.position, this.Target.position, this.PositionLerpTime);
 
                 Vector3 delta = this.Target.position - this.transform.position;
                 float magnitude = delta.magnitude;
@@ -79,7 +77,7 @@ namespace Misc
             }
 
             if (this.SetRotation)
-                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, this.Target.rotation, this.RotationLerpTime);
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, this.Target.rotation, this.RotationLerpTime);
         }
 
         public void SetLerpTime(float lerpTime)

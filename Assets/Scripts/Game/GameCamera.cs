@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
-
-public class GameCamera : MonoBehaviour
+namespace Game
 {
-    [SerializeField] private CameraData data;
-    public CameraData Data { get { return data; } }
-
-    private void Start()
+    public class GameCamera : MonoBehaviour
     {
-        this.Data.Camera = this;
+        [SerializeField] private CameraData data;
+        public CameraData Data { get { return data; } }
+
+        private void Start()
+        {
+            this.Data.Camera = this;
+        }
     }
 }

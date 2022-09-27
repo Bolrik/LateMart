@@ -869,7 +869,7 @@ MonoBehaviour:
     brightness:
       qName: Brightness
     mouseSensitivity:
-      qName: MouseSensiticity
+      qName: MouseSensitivity
   button_Exit:
     qName: Button_Exit
 --- !u!1 &2018309853

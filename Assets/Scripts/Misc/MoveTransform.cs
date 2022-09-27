@@ -17,6 +17,7 @@ namespace Misc
         [SerializeField] private bool setPosition;
         public bool SetPosition { get { return setPosition; } }
 
+
         Vector3 OriginPosition { get; set; }
         Quaternion OriginRotation { get; set; }
 

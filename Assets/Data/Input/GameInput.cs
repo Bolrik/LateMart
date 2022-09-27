@@ -64,6 +64,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""9bed09e0-1065-4397-95f4-688c13bb0338"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -165,6 +174,17 @@ namespace Input
                     ""action"": ""KeyPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6317143-1c7d-443b-af09-ceca584960e3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +197,7 @@ namespace Input
             m_Player_View = m_Player.FindAction("View", throwIfNotFound: true);
             m_Player_Act = m_Player.FindAction("Act", throwIfNotFound: true);
             m_Player_KeyPress = m_Player.FindAction("KeyPress", throwIfNotFound: true);
+            m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -240,6 +261,7 @@ namespace Input
         private readonly InputAction m_Player_View;
         private readonly InputAction m_Player_Act;
         private readonly InputAction m_Player_KeyPress;
+        private readonly InputAction m_Player_Back;
         public struct PlayerActions
         {
             private @GameInput m_Wrapper;
@@ -248,6 +270,7 @@ namespace Input
             public InputAction @View => m_Wrapper.m_Player_View;
             public InputAction @Act => m_Wrapper.m_Player_Act;
             public InputAction @KeyPress => m_Wrapper.m_Player_KeyPress;
+            public InputAction @Back => m_Wrapper.m_Player_Back;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -269,6 +292,9 @@ namespace Input
                     @KeyPress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyPress;
                     @KeyPress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyPress;
                     @KeyPress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyPress;
+                    @Back.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                    @Back.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                    @Back.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -285,6 +311,9 @@ namespace Input
                     @KeyPress.started += instance.OnKeyPress;
                     @KeyPress.performed += instance.OnKeyPress;
                     @KeyPress.canceled += instance.OnKeyPress;
+                    @Back.started += instance.OnBack;
+                    @Back.performed += instance.OnBack;
+                    @Back.canceled += instance.OnBack;
                 }
             }
         }
@@ -295,6 +324,7 @@ namespace Input
             void OnView(InputAction.CallbackContext context);
             void OnAct(InputAction.CallbackContext context);
             void OnKeyPress(InputAction.CallbackContext context);
+            void OnBack(InputAction.CallbackContext context);
         }
     }
 }

@@ -15,8 +15,12 @@ namespace Player
         public InputManager Input { get { return input; } }
 
 
-        [SerializeField] private float moveSpeed;
-        public float MoveSpeed { get { return moveSpeed; } }
+        [SerializeField] private float speed;
+        public float Speed { get { return speed; } }
+
+        [SerializeField] private float acceleration;
+        public float Acceleration { get { return acceleration; } }
+
 
 
         [SerializeField] private PlayerData data;
@@ -32,27 +36,20 @@ namespace Player
         [SerializeField] private FlashlightController flashlight;
         public FlashlightController Flashlight { get { return flashlight; } }
 
-
-
         // Update is called once per frame
         void Update()
         {
-            Vector2 input = this.Input.View.GetVector2() * this.Data.ViewSensitivity;
+            this.ViewController.Update(this.Input.View.GetVector2() * this.Data.ViewSensitivity * Time.deltaTime);
 
-            this.ViewController.Update(input);
+            Vector2 moveInput = this.Input.Move.GetVector2();
+            Vector3 move = this.transform.forward * moveInput.y + this.transform.right * moveInput.x;
 
-            input = this.Input.Move.GetVector2();
-            this.Move(input);
+            this.Rigidbody.velocity = Vector3.MoveTowards(this.Rigidbody.velocity, move * this.Speed, Time.deltaTime * this.Acceleration);
 
-            this.Flashlight.FlashlightLerpTransform.Mode = input.magnitude > .1f ? LerpTransformMode.Instant : LerpTransformMode.Lerp;
-        }
-
-        void Move(Vector2 moveInput)
-        {
-            Vector3 move = this.transform.forward * moveInput.y * this.MoveSpeed;
-            Vector3 strafe = this.transform.right * moveInput.x * this.MoveSpeed;
-
-            this.Rigidbody.velocity = Vector3.Lerp(this.Rigidbody.velocity, move + strafe, 1 / .3f * Time.deltaTime);
+            this.Flashlight.SetUpdateType(this.Rigidbody.velocity.magnitude > .1f ? FlashlightUpdateType.Set : FlashlightUpdateType.Lerp);
+            this.Flashlight.Update();
+            //Vector3 movementInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //rigidBody.velocity = Vector3.MoveTowards(rigidBody.Velocity, movementInput * characterSpeed, Time.deltaTime * accelerationSpeed);
         }
     }
 
@@ -92,16 +89,27 @@ namespace Player
 
         public void Update(Vector2 viewInput)
         {
-            Vector3 rotation = this.Transform.transform.localEulerAngles;
-            this.Y += viewInput.x * this.RotationSpeedY * Time.deltaTime;
-            rotation.y = this.Y;
-            this.Transform.transform.localEulerAngles = rotation;
+            this.Y += viewInput.x * this.RotationSpeedY;
+            this.X -= viewInput.y * this.RotationSpeedX;
 
-            rotation = this.Head.transform.localEulerAngles;
-            this.X -= viewInput.y * this.RotationSpeedX * Time.deltaTime;
             this.X = Mathf.Clamp(this.X, this.ViewConstraint.x, this.ViewConstraint.y);
-            rotation.x = this.X;
-            this.Head.transform.localEulerAngles = rotation;
+
+            this.Transform.transform.localRotation = Quaternion.Euler(0f, this.Y, 0f);
+            this.Head.transform.localRotation = Quaternion.Euler(this.X, 0f, 0f);
+
+            //Vector3 rotation = this.Transform.transform.localEulerAngles;
+
+            //this.Y += viewInput.x * this.RotationSpeedY;
+            //rotation.y = this.Y;
+            //this.Transform.transform.localEulerAngles = rotation;
+
+            //rotation = this.Head.transform.localEulerAngles;
+            //this.X -= viewInput.y * this.RotationSpeedX;
+            //this.X = Mathf.Clamp(this.X, this.ViewConstraint.x, this.ViewConstraint.y);
+            //rotation.x = this.X;
+
+
+            //this.Head.transform.localEulerAngles = rotation;
         }
     }
 
@@ -114,5 +122,31 @@ namespace Player
         [SerializeField] private GameObject flashlight;
         public GameObject gameObject { get { return flashlight; } }
 
+        [SerializeField] private float lerpTime = .1f;
+        public float LerpTime { get { return lerpTime; } }
+
+        [SerializeField] private float setLerpTime = .98f;
+        public float SetLerpTime { get { return setLerpTime; } }
+
+
+        public FlashlightUpdateType UpdateType { get; private set; }
+
+
+        public void SetUpdateType(FlashlightUpdateType type)
+        {
+            this.UpdateType = type;
+        }
+
+        public void Update()
+        {
+            this.FlashlightLerpTransform.SetLerpTime((this.UpdateType == FlashlightUpdateType.Lerp) ? this.LerpTime : this.SetLerpTime);
+            this.FlashlightLerpTransform.ManualUpdate();
+        }
+    }
+
+    public enum FlashlightUpdateType
+    {
+        Lerp,
+        Set
     }
 }

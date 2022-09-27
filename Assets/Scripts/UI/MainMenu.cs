@@ -80,8 +80,11 @@ namespace UI
         {
             this.Brightness.Initialize(rootVisualElement);
             this.Brightness.Register((x) => this.Data.Brightness = x);
+            this.Brightness.Set(this.Data.Brightness);
+            
             this.MouseSensitivity.Initialize(rootVisualElement);
             this.MouseSensitivity.Register((x) => this.Data.ViewSensitivity = x);
+            this.MouseSensitivity.Set(this.Data.ViewSensitivity);
         }
     }
 
@@ -111,6 +114,11 @@ namespace UI
         public void Register(Action<float> action)
         {
             this.Action = action;
+        }
+
+        public void Set(float value)
+        {
+            this.Slider.value = value;
         }
     }
 

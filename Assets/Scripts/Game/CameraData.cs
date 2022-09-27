@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "CameraData", menuName = "Game/Data/Camera/new Camera Data")]
 public class CameraData : ScriptableObject
