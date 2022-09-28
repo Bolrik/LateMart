@@ -1,4 +1,6 @@
-﻿using Input;
+﻿using Enemy;
+using Input;
+using Player;
 using UnityEngine;
 
 namespace Game
@@ -10,6 +12,13 @@ namespace Game
 
         [SerializeField] private SceneLoaderProxy sceneLoader;
         public SceneLoaderProxy SceneLoader { get { return sceneLoader; } }
+
+        [SerializeField] private Eyenstein enemy;
+        public Eyenstein Enemy { get { return enemy; } }
+
+        [SerializeField] private PlayerController player;
+        public PlayerController Player { get { return player; } }
+
 
         private void Update()
         {

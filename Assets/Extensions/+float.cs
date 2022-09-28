@@ -88,5 +88,30 @@
 
             return value;
         }
+
+
+        public static float MoveTowards(this float value, float target, float maxDelta)
+        {
+            if ((target - value).Abs() <= maxDelta)
+                return target;
+
+            return value + (target - value).Sign() * maxDelta;
+        }
+
+        public static float MoveTowards(this float value, float origin, float target, float t)
+        {
+            //this.Height = Mathf.MoveTowards(this.Height, this.HeightTarget,
+            //    Mathf.Lerp(0, (this.HeightTarget - this.HeightOrigin).Abs(), 1f / 2f * Time.deltaTime));
+
+            float delta = (target - origin).Abs();
+
+            float lerp = 0f.Lerp(delta, t);
+            float toReturn = value.MoveTowards(target, lerp);
+
+            return toReturn;
+
+            //this.Height = Mathf.MoveTowards(this.Height, this.HeightTarget,
+            //    Mathf.Lerp(this.HeightOrigin, this.HeightTarget, 1f / 2f * Time.deltaTime));
+        }
     }
 }
