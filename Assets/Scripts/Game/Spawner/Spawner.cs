@@ -12,29 +12,46 @@ public abstract class Spawner : MonoBehaviour
 
 
 
-
     [SerializeField] private bool spawnOnStart;
-    public bool SpawnOnStart { get { return spawnOnStart; } }
+    public bool SpawnOnAwake { get { return spawnOnStart; } }
+
+    private Action<Vector3>[] PointActions { get; set; } = new Action<Vector3>[0];
 
 
-    private void Start()
+    private void Awake()
     {
-        if (this.SpawnOnStart)
+        if (this.SpawnOnAwake)
             this.Spawn();
     }
 
-    public void Spawn()
+    public void SetPointAction(params Action<Vector3>[] actions)
     {
+        this.PointActions = actions ?? new Action<Vector3>[0];
+    }
+
+    public GameObject[] Spawn()
+    {
+        GameObject[] toReturn = new GameObject[this.Spawns];
+
         this.GetPoints(out Vector3[] points);
+
+        int index = 0;
 
         foreach (var point in points)
         {
+            foreach (var pointAction in this.PointActions)
+            {
+                pointAction?.Invoke(this.transform.position + point);
+            }
+
             if (Physics.Raycast(
                 new Ray(new Vector3(this.transform.position.x + point.x, 10, this.transform.position.z + point.z), Vector3.down), out RaycastHit hit, 20))
             {
                 SpawnData data = this.GetRandomData();
 
                 var obj = GameObject.Instantiate(data.Prefab);
+                toReturn[index] = obj;
+
                 float scale = data.ScaleMinMax.y - data.ScaleMinMax.x;
                 scale = data.ScaleMinMax.x + Random.value * scale;
 
@@ -42,8 +59,11 @@ public abstract class Spawner : MonoBehaviour
                 obj.transform.position = hit.point;
 
                 obj.transform.localEulerAngles = data.GetEulerAngles();
+                index++;
             }
         }
+
+        return toReturn;
     }
 
     protected abstract void GetPoints(out Vector3[] points);

@@ -79,7 +79,7 @@ namespace Misc
             }
 
             if (this.SetRotation)
-                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, this.Target.rotation, this.RotationLerpTime);
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, this.Target.rotation, this.RotationLerpTime);
         }
 
         public void SetLerpTime(float lerpTime)
