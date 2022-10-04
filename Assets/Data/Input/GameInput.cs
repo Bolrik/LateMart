@@ -57,6 +57,15 @@ namespace Input
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""fdd4d886-aac5-491b-8e80-72c7dbf41749"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""KeyPress"",
                     ""type"": ""Button"",
                     ""id"": ""57b0932f-7812-4216-a2e4-bde09ab0c49f"",
@@ -90,7 +99,7 @@ namespace Input
                 {
                     ""name"": """",
                     ""id"": ""e593562e-3a32-4868-a866-34c2f179d94e"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -165,6 +174,61 @@ namespace Input
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Arrows"",
+                    ""id"": ""47fd5e30-28ce-4263-8547-9f79f1ec84ba"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3612e045-7f01-4c05-b108-5fedda776c28"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""beb0a7c4-7c03-4ac1-9b89-e03647b022cc"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""36777ed1-c394-4074-892b-aff0653302a3"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d383a71c-69d6-451d-a057-283315ea2655"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""5cc64237-501f-4fd2-b1a0-b3590c5c69a6"",
                     ""path"": ""<Keyboard>/anyKey"",
@@ -185,6 +249,17 @@ namespace Input
                     ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1b10d6a-eaab-44bf-9862-29c710c5fe1b"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +271,7 @@ namespace Input
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_View = m_Player.FindAction("View", throwIfNotFound: true);
             m_Player_Act = m_Player.FindAction("Act", throwIfNotFound: true);
+            m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
             m_Player_KeyPress = m_Player.FindAction("KeyPress", throwIfNotFound: true);
             m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
         }
@@ -260,6 +336,7 @@ namespace Input
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_View;
         private readonly InputAction m_Player_Act;
+        private readonly InputAction m_Player_Sprint;
         private readonly InputAction m_Player_KeyPress;
         private readonly InputAction m_Player_Back;
         public struct PlayerActions
@@ -269,6 +346,7 @@ namespace Input
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @View => m_Wrapper.m_Player_View;
             public InputAction @Act => m_Wrapper.m_Player_Act;
+            public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
             public InputAction @KeyPress => m_Wrapper.m_Player_KeyPress;
             public InputAction @Back => m_Wrapper.m_Player_Back;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -289,6 +367,9 @@ namespace Input
                     @Act.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAct;
                     @Act.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAct;
                     @Act.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAct;
+                    @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                    @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                    @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                     @KeyPress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyPress;
                     @KeyPress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyPress;
                     @KeyPress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyPress;
@@ -308,6 +389,9 @@ namespace Input
                     @Act.started += instance.OnAct;
                     @Act.performed += instance.OnAct;
                     @Act.canceled += instance.OnAct;
+                    @Sprint.started += instance.OnSprint;
+                    @Sprint.performed += instance.OnSprint;
+                    @Sprint.canceled += instance.OnSprint;
                     @KeyPress.started += instance.OnKeyPress;
                     @KeyPress.performed += instance.OnKeyPress;
                     @KeyPress.canceled += instance.OnKeyPress;
@@ -323,6 +407,7 @@ namespace Input
             void OnMove(InputAction.CallbackContext context);
             void OnView(InputAction.CallbackContext context);
             void OnAct(InputAction.CallbackContext context);
+            void OnSprint(InputAction.CallbackContext context);
             void OnKeyPress(InputAction.CallbackContext context);
             void OnBack(InputAction.CallbackContext context);
         }

@@ -11,5 +11,11 @@ namespace Player
         [SerializeField] private float brightness = 2;
         public float Brightness { get { return brightness; } set { this.brightness = value; } }
 
+        [SerializeField] private float interactionDistance = 2;
+        public float InteractionDistance { get { return interactionDistance; } }
+
+        [SerializeField] private SystemLanguage language = SystemLanguage.German;
+        public SystemLanguage Language { get { return language; } }
+
     }
 }

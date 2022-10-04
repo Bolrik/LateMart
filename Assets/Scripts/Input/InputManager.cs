@@ -13,6 +13,7 @@ namespace Input
         private GameInput Input { get; set; }
 
         public InputState Move { get; private set; }
+        public InputState Sprint { get; private set; }
         public InputState View { get; private set; }
         public InputButton Action { get; private set; }
         public InputButton AnyKey { get; private set; }
@@ -26,6 +27,7 @@ namespace Input
             this.Input.Enable();
 
             this.Move = this.Add(this.Input.Player.Move);
+            this.Sprint = this.Add(this.Input.Player.Sprint);
             this.View = this.Add(this.Input.Player.View);
 
             this.Action = this.AddButton(this.Input.Player.Act);

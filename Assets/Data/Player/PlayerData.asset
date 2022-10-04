@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ccc0176f4309b4f9924aa20bb23868, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  viewSensitivity: 0.32
-  brightness: 2
+  viewSensitivity: 1
+  brightness: 1.5
+  interactionDistance: 2
+  language: 10

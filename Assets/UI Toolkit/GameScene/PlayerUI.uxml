@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/MainTheme.uss?fileID=7433441132597879392&amp;guid=018f29827f039a2408de424867cc5733&amp;type=3#MainTheme" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:VisualElement name="Fill" style="flex-direction: column; align-items: stretch; flex-grow: 1;" />
+        <ui:VisualElement name="PlayerUIController">
+            <ui:Label text="Bla bla bla, what huh?&#10;(╯°□°)╯︵ ┻━┻" display-tooltip-when-elided="true" name="Label_MonoDialog" class="DefaultLabel" style="margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; -unity-text-align: upper-center; -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(111, 111, 111); text-shadow: 1px 1px 0 rgb(0, 0, 0); letter-spacing: 4px;" />
+            <ui:Label text="[E] to use" display-tooltip-when-elided="true" name="Label_Interaction" class="DefaultLabel" style="margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; -unity-text-align: upper-center; -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(111, 111, 111); text-shadow: 1px 1px 0 rgb(0, 0, 0); letter-spacing: 4px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

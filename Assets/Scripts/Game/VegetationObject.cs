@@ -9,8 +9,6 @@ namespace Game
 
         public void Remove()
         {
-            Debug.Log($"Removing {this.Root}");
-
             GameObject.Destroy(this.Root);
         }
     }

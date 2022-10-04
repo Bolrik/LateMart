@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/MainTheme.uss?fileID=7433441132597879392&amp;guid=018f29827f039a2408de424867cc5733&amp;type=3#MainTheme" />
+    <ui:VisualElement name="Container" style="flex-grow: 1;">
+        <ui:VisualElement name="Image_BloodOverlay" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Visuals/Textures/BloodOverlay.png?fileID=2800000&amp;guid=4019076d4c8dff34bb4eec752e82429b&amp;type=3#BloodOverlay&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.6);" />
+        <ui:VisualElement style="flex-grow: 1; position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center;">
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:ProgressBar title=" " name="Element_Sprint" class="sprint-bar" style="margin-left: 10px; margin-right: 10px; margin-top: 5px; margin-bottom: 5px; width: 200px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

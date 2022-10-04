@@ -4,6 +4,9 @@ using Random = UnityEngine.Random;
 
 public abstract class Spawner : MonoBehaviour
 {
+    [SerializeField] private Transform container;
+    public Transform Container { get { return container; } }
+
     [SerializeField] private SpawnDataCollection[] spawnData;
     public SpawnDataCollection[] SpawnData { get { return spawnData; } }
 
@@ -12,8 +15,8 @@ public abstract class Spawner : MonoBehaviour
 
 
 
-    [SerializeField] private bool spawnOnStart;
-    public bool SpawnOnAwake { get { return spawnOnStart; } }
+    [SerializeField] private bool spawnOnAwake;
+    public bool SpawnOnAwake { get { return spawnOnAwake; } }
 
     private Action<Vector3>[] PointActions { get; set; } = new Action<Vector3>[0];
 
@@ -45,7 +48,8 @@ public abstract class Spawner : MonoBehaviour
             }
 
             if (Physics.Raycast(
-                new Ray(new Vector3(this.transform.position.x + point.x, 10, this.transform.position.z + point.z), Vector3.down), out RaycastHit hit, 20))
+                new Ray(new Vector3(this.transform.position.x + point.x, 10, this.transform.position.z + point.z), Vector3.down), 
+                out RaycastHit hit, 20))
             {
                 SpawnData data = this.GetRandomData();
 
@@ -59,6 +63,10 @@ public abstract class Spawner : MonoBehaviour
                 obj.transform.position = hit.point;
 
                 obj.transform.localEulerAngles = data.GetEulerAngles();
+
+                if (this.Container != null)
+                    obj.transform.SetParent(this.Container, true);
+
                 index++;
             }
         }

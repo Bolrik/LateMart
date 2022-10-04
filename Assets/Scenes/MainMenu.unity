@@ -327,7 +327,7 @@ MonoBehaviour:
   spawnData:
   - {fileID: 11400000, guid: 13f7b9cb7cc244447a3b7ed0dd64ac57, type: 2}
   spawns: 200
-  spawnOnStart: 1
+  spawnOnAwake: 1
   radius: 5.5
   distance: 1.2
   segmentDistance: 1.25
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   spawnData:
   - {fileID: 11400000, guid: 6cc3e725495c2dd41a7f70e9dd0e43b3, type: 2}
   spawns: 200
-  spawnOnStart: 1
+  spawnOnAwake: 1
   radius: 5.5
   distance: 1.4
   segmentDistance: 1.25
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   spawnData:
   - {fileID: 11400000, guid: 59f07881042b785459a140082176c9fd, type: 2}
   spawns: 200
-  spawnOnStart: 1
+  spawnOnAwake: 1
   radius: 5.5
   distance: 1
   segmentDistance: 1.25
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   spawnData:
   - {fileID: 11400000, guid: b8ba8ef01293f5448b2767ee0a2bf73c, type: 2}
   spawns: 100
-  spawnOnStart: 1
+  spawnOnAwake: 1
   radius: 5.5
   distance: 1.6
   segmentDistance: 1.25
